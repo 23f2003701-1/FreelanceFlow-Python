@@ -4,7 +4,7 @@ from models.user import User
 class UserService:
     @staticmethod
     def register(username, password, role):
-        if role not in ["client", "freelancer"]:
+        if role.lower() not in ["client", "freelancer"]:
             print("Role must be either 'client' or 'freelancer'.")
             return
         if any(user.username == username for user in mock_db.users):
